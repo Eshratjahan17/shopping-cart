@@ -9,6 +9,31 @@ function updateQuantity(product, isPlus, productPrice, productRate) {
     }
     let productCurretPrice = document.getElementById(productPrice);
     productCurretPrice.innerText = productRate * productQuantity.value;
+    productsubTotal();
+
+
+
+}
+
+function productInput(productName) {
+    const inputNumber = document.getElementById(productName);
+    let productInputNumber = parseInt(inputNumber.value);
+    return productInputNumber;
+}
+
+function productsubTotal() {
+    let phoneTotal = productInput('phn-quantity') * 1219;
+    let caseTotal = productInput('case-quantiy') * 59;
+    let subTotal = phoneTotal + caseTotal;
+    document.getElementById('subtotal').innerText = subTotal;
+    //tax
+    let taxCalculate = subTotal / 10;
+
+    document.getElementById('tax').innerText = taxCalculate;
+    //grandtotal
+    let grandTotal = subTotal + taxCalculate;
+    document.getElementById('grand-total').innerText = grandTotal;
+
 
 
 }
