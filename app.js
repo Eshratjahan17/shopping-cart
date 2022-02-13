@@ -1,52 +1,39 @@
-function updateCaseQuantity(isPlus) {
-    const caseQuantity = document.getElementById('case-quantiy');
-    const caseValue = caseQuantity.value;
+function updateQuantity(product, isPlus, productPrice, productRate) {
+    const productQuantity = document.getElementById(product);
+    const productValue = productQuantity.value;
     if (isPlus == true) {
-        caseQuantity.value = parseInt(caseValue) + 1;
-    } else if (caseValue > 0) {
-        caseQuantity.value = parseInt(caseValue) - 1;
+        productQuantity.value = parseInt(productValue) + 1;
+    } else if (productValue > 0) {
+        productQuantity.value = parseInt(productValue) - 1;
 
     }
-    let caseCurretPrice = document.getElementById('case-price');
-    // let caseCurrentPriceNumber = parseInt(caseCurretPrice.innerText);
-    // let totalCasePrice = caseCurrentPriceNumber * caseQuantity.value;
-    // caseCurrentPriceNumber.value = caseCurrentPriceNumber;
-    caseCurretPrice.innerText = 59 * caseQuantity.value;
+    let productCurretPrice = document.getElementById(productPrice);
+    productCurretPrice.innerText = productRate * productQuantity.value;
 
 
 }
 
 
-
+//case increase decrease 
 document.getElementById('case-plus').addEventListener('click', function() {
-    updateCaseQuantity(true);
+    updateQuantity('case-quantiy', true, 'case-price', 59);
 
 });
 document.getElementById('case-minus').addEventListener('click', function() {
-    updateCaseQuantity(false);
+    updateQuantity('case-quantiy', false, 'case-price', 59);
 
 });
 
+//phone increase decrese
 
-function updatePhnQunatity(plusOrMinus) {
-    const phnQuantity = document.getElementById('phn-quantity');
-    const phnValue = phnQuantity.value;
-    if (plusOrMinus == true) {
-        phnQuantity.value = parseInt(phnValue) + 1;
 
-    } else if (phnValue > 0) {
-        phnQuantity.value = parseInt(phnValue) - 1;
-
-    }
-
-}
 document.getElementById('phn-plus').addEventListener('click', function() {
-    updatePhnQunatity(true);
+    updateQuantity('phn-quantity', true, 'phn-price', 1219);
 
 
 });
 
 document.getElementById('phn-minus').addEventListener('click', function() {
-    updatePhnQunatity(false);
+    updateQuantity('phn-quantity', false, 'phn-price', 1219);
 
 });
